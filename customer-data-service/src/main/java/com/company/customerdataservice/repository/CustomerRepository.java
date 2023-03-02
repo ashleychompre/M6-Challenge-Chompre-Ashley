@@ -10,5 +10,7 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     List<Customer> getCustomerById(int id);
     List<Customer> findByState(String state);
-    List<Customer> deleteCustomer(int id);
+    List<Customer> deleteCustomer(Customer customer);
+    List<Customer> updateCustomer(Customer customer);
+    List<Customer> addCustomer(Customer customer);
 }
