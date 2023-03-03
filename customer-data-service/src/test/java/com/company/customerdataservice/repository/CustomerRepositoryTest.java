@@ -45,7 +45,7 @@ public class CustomerRepositoryTest {
         customerRepo.save(customer);
 
         Optional<Customer> customer1 = customerRepo.findById(customer.getId());
-        assertEquals(customer1, customer);
+        assertEquals(customer1.get(), customer);
     }
 
     @Test
@@ -89,7 +89,7 @@ public class CustomerRepositoryTest {
         customerRepo.addCustomer(customer);
 
         Optional<Customer> fromRepo = customerRepo.findById(customer.getId());
-        assertEquals(customer, fromRepo);
+        assertEquals(customer, fromRepo.get());
     }
 
     @Test
@@ -116,7 +116,7 @@ public class CustomerRepositoryTest {
         customerRepo.updateCustomer(customer);
 
         Optional<Customer> fromRepo = customerRepo.findById(customer.getId());
-        assertEquals(customer, fromRepo);
+        assertEquals(customer, fromRepo.get());
     }
 
     @Test
